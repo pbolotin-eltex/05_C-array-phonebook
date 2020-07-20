@@ -57,7 +57,9 @@ Number:");
 }
 
 int show_quit_menu() {
-    printf("quit_menu\n");
+    printf(" * Are you sure you want to quit?\n\
+ * 1. No, I want to stay here and return to main menu.\n\
+ * 2. Yes, I really need to go away...\n\n");
     return 0;
 }
 

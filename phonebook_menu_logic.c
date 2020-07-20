@@ -114,7 +114,8 @@ int search_menu(abonent_record* phonebook, abonent_record* look_for_abonent, int
 int quit_menu(abonent_record* phonebook) {
     clear_screen();
     show_quit_menu();
-    return 0;
+    if(get_user_choice() == 2) return 1;
+    else return 0;
 }
 
 int add_dialog(abonent_record* phonebook) {
