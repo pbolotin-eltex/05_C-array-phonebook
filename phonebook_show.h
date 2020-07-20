@@ -1,3 +1,15 @@
+/*********************
+* It all need for
+* calmness and
+* comfort of user, 
+* when they
+* try to understand
+* what else to do with
+* this super phonebook
+**********************
+* user-interfaceses
+*********************/
+
 #include <stddef.h>
 
 int show_main_menu();

@@ -1,3 +1,8 @@
+/***********************************
+* Ways to get important informaiton
+* from user into the program data.
+* Changable, of course.
+***********************************/
 #include <stdio.h>
 #include <stdio_ext.h>
 #include "phonebook_interactions.h"

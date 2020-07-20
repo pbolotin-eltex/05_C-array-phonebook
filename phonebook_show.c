@@ -1,3 +1,11 @@
+/******************************************
+*
+*  SHOW must Go On!
+*  And functions here for this!
+*
+*******************************************
+*  Interface part of program here.
+******************************************/
 #include <stdio.h>
 
 int clear_screen() {
