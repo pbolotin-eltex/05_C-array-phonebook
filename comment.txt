@@ -15,7 +15,7 @@ STRUCT OF PROJECT
     phonebook_data.h              
 
 3.  phonebook_menu_logic.c      - just logic of behavior between user and program
-    phonebook_menu_logic.h        it not so simple, many ways need to care about.
+    phonebook_menu_logic.h        it not so simple, there are many ways it need to care about.
 
 3.  phonebook_interactions.c    - ways of user input here
     phonebook_interactions.h
