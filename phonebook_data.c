@@ -39,7 +39,7 @@ int index_of_first_empty_place_in_phonebook(abonent_record* phonebook) {
     return -1;
 }
 
-/* Next function just search next exist record in array, because of can be empty places there! */
+/* Next function just search next exist record in array, because of empty places can be there! */
 /* Isn't so short this function name and isn't so clear... :-) Let it be!  */
 int get_next_index_from_prev_index_of_exist_record_in_phonebook(abonent_record* phonebook, int view_index) {
     if(view_index < 0) {
