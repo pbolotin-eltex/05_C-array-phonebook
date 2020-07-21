@@ -6,6 +6,10 @@
 * defines describes.
 ************************************/
 
+#ifndef _PHONEBOOK_DATA_H_
+
+#define _PHONEBOOK_DATA_H_
+
 #define MAX_STR_LEN 32
 #define PHONEBOOK_MAX_REC 10
 
@@ -14,8 +18,6 @@ typedef struct abonent_record {
     char surname[MAX_STR_LEN];
     char phone[MAX_STR_LEN];
 } abonent_record;
-
-abonent_record phonebook[PHONEBOOK_MAX_REC];
 
 /* Just about number of records in phonebook */
 int how_many_records(abonent_record* phonebook);
@@ -38,3 +40,5 @@ int delete_record_from_phonebook_by_index(abonent_record* phonebook, int del_ind
 
 /* Next abonent, next, next... [And], [or] modes of search... Return next index, if it's exist.*/
 int look_for_next_abonent_index_from_current(abonent_record* phonebook, abonent_record* what_to_search, int view_index, int and_search_flag);
+
+#endif

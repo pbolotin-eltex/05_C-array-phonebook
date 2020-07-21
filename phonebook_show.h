@@ -10,6 +10,10 @@
 * user-interfaceses
 *********************/
 
+#ifndef _PHONEBOOK_SHOW_H_
+
+#define _PHONEBOOK_SHOW_H_
+
 #include <stddef.h>
 
 int show_main_menu();
@@ -47,3 +51,5 @@ int show_phone(char *phone, size_t length);
 int show_invoice_geting_data_for_search();
 
 int clear_screen();
+
+#endif

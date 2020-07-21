@@ -5,6 +5,8 @@
 **********************************/
 #include "phonebook_menu_logic.h"
 
+abonent_record phonebook[PHONEBOOK_MAX_REC];
+
 int main() {
     main_menu(phonebook);
     return 0;
