@@ -1,14 +1,7 @@
-/*********************
-* It all need for
-* calmness and
-* comfort of user, 
-* when they
-* try to understand
-* what else to do with
-* this super phonebook
-**********************
-* user-interfaceses
-*********************/
+/*************************
+* functions for output of
+* user-interfaces
+*************************/
 
 #ifndef _PHONEBOOK_SHOW_H_
 

@@ -27,7 +27,7 @@ int main_menu(abonent_record* phonebook) {
             if(are_records_in_phonebook(phonebook)) {
                 int view_index = -1;
                 do {
-                    view_index = get_next_index_from_prev_index_of_exist_record_in_phonebook(phonebook, view_index);
+                    view_index = get_index_of_next_existing_record(phonebook, view_index);
                     view_menu(phonebook, view_index);
                 } while(get_user_choice() == 1);
             } else {
@@ -41,7 +41,7 @@ int main_menu(abonent_record* phonebook) {
                 int view_index = -1;
                 int user_choice = 1;
                 do {
-                    view_index = get_next_index_from_prev_index_of_exist_record_in_phonebook(phonebook, view_index);
+                    view_index = get_index_of_next_existing_record(phonebook, view_index);
                     del_menu(phonebook, view_index);
                     user_choice = get_user_choice();
                     if(user_choice == 2) {
@@ -63,7 +63,7 @@ int main_menu(abonent_record* phonebook) {
                 int user_choice = 1;
                 int was_found = 0;
                 do {
-                    view_index = look_for_next_abonent_index_from_current(phonebook, &what_to_search, view_index, and_search_flag);
+                    view_index = search_index_of_abonent_from_current(phonebook, &what_to_search, view_index, and_search_flag);
                     if(view_index == -1) {
                         show_no_found_message();
                         get_user_reaction();
