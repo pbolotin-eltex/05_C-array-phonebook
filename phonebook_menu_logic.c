@@ -27,7 +27,8 @@ int main_menu(abonent_record* phonebook) {
             if(are_records_in_phonebook(phonebook)) {
                 int view_index = -1;
                 do {
-                    view_index = get_index_of_next_existing_record(phonebook, view_index);
+                    view_index = get_index_of_next_existing_record(phonebook, \
+                                                                   view_index);
                     view_menu(phonebook, view_index);
                 } while(get_user_choice() == 1);
             } else {
@@ -41,13 +42,17 @@ int main_menu(abonent_record* phonebook) {
                 int view_index = -1;
                 int user_choice = 1;
                 do {
-                    view_index = get_index_of_next_existing_record(phonebook, view_index);
+                    view_index = get_index_of_next_existing_record(phonebook, \
+                                                                   view_index);
                     del_menu(phonebook, view_index);
                     user_choice = get_user_choice();
                     if(user_choice == 2) {
-                        delete_record_from_phonebook_by_index(phonebook, view_index);
+                        delete_record_from_phonebook_by_index(phonebook, \
+                                                                   view_index);
                     }
-                } while((1 == user_choice || 2 == user_choice) && are_records_in_phonebook(phonebook));
+                /* 1 - continue viewing, 2 delete and continue viewing */    
+                } while((1 == user_choice || 2 == user_choice) && \
+                         are_records_in_phonebook(phonebook));
             } else {
                 show_no_records_message();
                 get_user_reaction();
@@ -56,20 +61,23 @@ int main_menu(abonent_record* phonebook) {
         /**** Search case ****/                        
         case 4:
             if(are_records_in_phonebook(phonebook)) {
-                abonent_record what_to_search;
-                int and_search_flag = 0;
-                get_data_for_search(&what_to_search, &and_search_flag);
-                int view_index = -1;
+                abonent_record to_search;
+                int and_mode = 0;
+                get_data_for_search(&to_search, &and_mode);
+                int current = -1;
                 int user_choice = 1;
                 int was_found = 0;
                 do {
-                    view_index = search_index_of_abonent_from_current(phonebook, &what_to_search, view_index, and_search_flag);
-                    if(view_index == -1) {
+                    current = search_index_of_abonent_from_current(phonebook, \
+                                                                   &to_search,\
+                                                                   current, \
+                                                                   and_mode);
+                    if(current == -1) {
                         show_no_found_message();
                         get_user_reaction();
                     } else {
                         was_found = 1;
-                        search_menu(phonebook, &what_to_search, view_index);
+                        search_menu(phonebook, &to_search, current);
                         user_choice = get_user_choice();
                     }
                 } while(1 == user_choice && was_found);
@@ -127,7 +135,9 @@ int del_menu(abonent_record* phonebook, int view_index) {
 }
 
 /* submenu for search for records */
-int search_menu(abonent_record* phonebook, abonent_record* look_for_abonent, int view_index) {
+int search_menu(abonent_record* phonebook,
+                abonent_record* look_for_abonent,\
+                int view_index) {
     clear_screen();
     show_name(phonebook[view_index].name, MAX_STR_LEN);
     show_surname(phonebook[view_index].surname, MAX_STR_LEN);
@@ -143,15 +153,15 @@ int get_data_for_search(abonent_record* phonebook, int* and_search_flag) {
     return 0;    
 }
 
-int get_data_for_search_dialog(abonent_record* what_to_search, int* and_search_flag) {
+int get_data_for_search_dialog(abonent_record* to_search, int* and_mode) {
     show_name_invoice();
-    get_field_data_from_user(what_to_search->name, MAX_STR_LEN);
+    get_field_data_from_user(to_search->name, MAX_STR_LEN);
     show_surname_invoice();
-    get_field_data_from_user(what_to_search->surname, MAX_STR_LEN);
+    get_field_data_from_user(to_search->surname, MAX_STR_LEN);
     show_phone_invoice();
-    get_field_data_from_user(what_to_search->phone, MAX_STR_LEN);
+    get_field_data_from_user(to_search->phone, MAX_STR_LEN);
     show_flag_invoice();
-    if(get_user_choice() != 0) *and_search_flag = 1;
+    if(get_user_choice() != 0) *and_mode = 1;
     return 0;
 }
 

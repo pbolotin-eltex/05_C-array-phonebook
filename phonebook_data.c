@@ -71,7 +71,7 @@ int delete_record_from_phonebook_by_index(abonent_record* phonebook, \
    [And], [or] modes of search... 
    Will return next index, if it's exist.*/
 int search_index_of_abonent_from_current(abonent_record* phonebook, \
-                                         abonent_record* what_to_search, \
+                                         abonent_record* to_search, \
                                          int current_index, \
                                          int and_search_flag) {
     if(current_index < 0) {
@@ -80,14 +80,14 @@ int search_index_of_abonent_from_current(abonent_record* phonebook, \
     for(int i = 0; i < PHONEBOOK_MAX_REC; i++) {
         int index = (i + current_index + 1)%PHONEBOOK_MAX_REC;
         if(and_search_flag) {
-            if(strcmp(phonebook[index].name, what_to_search->name) == 0 &&
-               strcmp(phonebook[index].surname, what_to_search->surname) == 0 &&
-               strcmp(phonebook[index].phone, what_to_search->phone) == 0) 
+            if(strcmp(phonebook[index].name, to_search->name) == 0 &&
+               strcmp(phonebook[index].surname, to_search->surname) == 0 &&
+               strcmp(phonebook[index].phone, to_search->phone) == 0) 
                return index;
         } else {
-            if(strcmp(phonebook[index].name, what_to_search->name) == 0 ||
-               strcmp(phonebook[index].surname, what_to_search->surname) == 0 ||
-               strcmp(phonebook[index].phone, what_to_search->phone) == 0)
+            if(strcmp(phonebook[index].name, to_search->name) == 0 ||
+               strcmp(phonebook[index].surname, to_search->surname) == 0 ||
+               strcmp(phonebook[index].phone, to_search->phone) == 0)
                return index;
         }
     }
